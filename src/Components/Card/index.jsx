@@ -10,35 +10,39 @@ export default function Card({ data, item }) {
     <CardAntd
       style={{
         width: "345px",
-        minHeight: "490px",
+        minHeight: "215px",
         borderRadius: "20px",
         border: "2px solid #0927d833",
         padding: "0",
       }}
     >
       <Row justify="center">
-        <Carousel
-          arrows={true}
-          infinite={false}
-          style={{
-            width: "323px",
-            height: "310px",
-            borderRadius: "15px",
-          }}
-        >
-          {fotos.map((foto) => (
-            <div key={foto.id}>
-              <img
-                src={`https://feeling.marcelobento.com.br/storage/${foto.imagem}`}
-                alt="Img"
-                style={{
-                  width: "323px",
-                  height: "310px",
-                }}
-              />
-            </div>
-          ))}
-        </Carousel>
+        {fotos.length ? (
+          <Carousel
+            arrows={true}
+            infinite={false}
+            style={{
+              width: "323px",
+              height: "310px",
+              borderRadius: "15px",
+            }}
+          >
+            {fotos.map((foto) => (
+              <div key={foto.id}>
+                <img
+                  src={`https://feeling.marcelobento.com.br/storage/${foto.imagem}`}
+                  alt="Img"
+                  style={{
+                    width: "323px",
+                    height: "310px",
+                  }}
+                />
+              </div>
+            ))}
+          </Carousel>
+        ) : (
+          <div></div>
+        )}
       </Row>
 
       <Row justify="space-between" style={{ marginTop: "10px" }}>

@@ -23,8 +23,8 @@ export default function Header() {
         height: "50px",
         padding: "9px 15px",
         backgroundColor: "#00173f",
-        zIndex: "1000",
-        position: "fixed",
+        // zIndex: "1000",
+        // position: "fixed",
       }}
     >
       <div>
