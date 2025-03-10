@@ -70,8 +70,9 @@ function Categorias() {
             <Seletor
               key={menu.id}
               title={menu.nome}
-              onClick={() => handleClick(menu.slug, menu.soon)}
-              soon={menu.soon}
+              onClick={() =>
+                handleClick(menu.slug, menu.nome.includes("(Em Breve)"))
+              }
             />
           ))}
         </Flex>
