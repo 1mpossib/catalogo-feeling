@@ -1,32 +1,17 @@
 import { Card as CardAntd, Tag, Typography, Row } from "antd";
 import { Carousel } from "antd";
+import { cardStyle, carouselStyle, tagStyle, stripes } from "./card.styles";
 
 export default function Card({ data, item }) {
   const { Text, Title } = Typography;
   const { slug } = data;
-  const { id, fotos, nome, valor } = item;
+  const { id, fotos, nome, valor, codigo } = item;
 
   return (
-    <CardAntd
-      style={{
-        width: "345px",
-        minHeight: "215px",
-        borderRadius: "20px",
-        border: "2px solid #0927d833",
-        padding: "0",
-      }}
-    >
+    <CardAntd style={cardStyle}>
       <Row justify="center">
         {fotos.length ? (
-          <Carousel
-            arrows={true}
-            infinite={false}
-            style={{
-              width: "323px",
-              height: "310px",
-              borderRadius: "15px",
-            }}
-          >
+          <Carousel arrows={true} infinite={false} style={carouselStyle}>
             {fotos.map((foto) => (
               <div key={foto.id}>
                 <img
@@ -46,7 +31,7 @@ export default function Card({ data, item }) {
       </Row>
 
       <Row justify="space-between" style={{ marginTop: "10px" }}>
-        <Tag style={{ borderRadius: "100px", backgroundColor: "#0927D8" }}>
+        <Tag style={tagStyle}>
           <Text strong style={{ fontSize: "10px", color: "#CCF7FF" }}>
             {slug}
           </Text>
@@ -54,7 +39,7 @@ export default function Card({ data, item }) {
         <div>
           <Text style={{ fontSize: "10px" }}>ID</Text>{" "}
           <Text strong style={{ fontSize: "10px" }}>
-            {id}
+            {codigo}
           </Text>
         </div>
       </Row>
@@ -63,15 +48,7 @@ export default function Card({ data, item }) {
         <Title level={4}>{nome}</Title>
       </Row>
 
-      <Row
-        justify="end"
-        style={{
-          marginTop: "10px",
-          borderTop: "1px solid #0927D8",
-          borderBottom: "1px solid #0927D8",
-          padding: "1px",
-        }}
-      >
+      <Row justify="end" style={stripes}>
         <Text strong style={{ fontSize: "22.3px", color: "#0927D8" }}>
           {valor}
         </Text>

@@ -17,8 +17,10 @@ function Categorias() {
     navigate("/");
   };
 
-  const handleClick = (rota) => {
-    navigate(`/lista/${rota}`);
+  const handleClick = (rota, soon) => {
+    if (!soon) {
+      navigate(`/lista/${rota}`);
+    }
   };
 
   const url = "https://feeling.marcelobento.com.br/api/categorias";
@@ -68,7 +70,8 @@ function Categorias() {
             <Seletor
               key={menu.id}
               title={menu.nome}
-              onClick={() => handleClick(menu.slug)}
+              onClick={() => handleClick(menu.slug, menu.soon)}
+              soon={menu.soon}
             />
           ))}
         </Flex>

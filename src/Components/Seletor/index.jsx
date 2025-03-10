@@ -1,7 +1,8 @@
 import { Button as ButtonAntd, Typography, Flex } from "antd";
 import { RightOutlined } from "@ant-design/icons";
+import { seletorButton } from "./seletor.styles";
 
-export default function Seletor({ title, onClick, type = "primary" }) {
+export default function Seletor({ title, onClick, type = "primary", soon }) {
   const { Text } = Typography;
 
   const colorText = {
@@ -18,17 +19,10 @@ export default function Seletor({ title, onClick, type = "primary" }) {
         icon={<RightOutlined style={{ fontSize: "21px" }} />}
         iconPosition="end"
         onClick={onClick}
-        style={{
-          color: "#00173F",
-          justifyContent: "space-between",
-          borderRadius: "0",
-          borderBottom: "1.5px solid #00173F",
-          padding: "10px 0",
-          margin: "2px",
-        }}
+        style={seletorButton}
       >
         <Text style={{ color: colorText[type].colorText, fontSize: "30px" }}>
-          {title}
+          {soon ? `${title} (Em Breve)` : title}
         </Text>
       </ButtonAntd>
     </Flex>

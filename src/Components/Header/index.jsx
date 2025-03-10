@@ -2,6 +2,7 @@ import { Button as ButtonAntd, Flex } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
 import LOGOH from "../../assets/Header/LOGOH.png";
 import { useNavigate } from "react-router";
+import { headerFlex, headerDiv } from "./header.styles";
 
 export default function Header() {
   const navigate = useNavigate();
@@ -15,18 +16,7 @@ export default function Header() {
   };
 
   return (
-    <Flex
-      align="center"
-      justify="space-between"
-      style={{
-        width: "100%",
-        height: "50px",
-        padding: "9px 15px",
-        backgroundColor: "#00173f",
-        // zIndex: "1000",
-        // position: "fixed",
-      }}
-    >
+    <Flex align="center" justify="space-between" style={headerFlex}>
       <div>
         <ButtonAntd type="text" onClick={handleClick}>
           <img
@@ -37,16 +27,7 @@ export default function Header() {
         </ButtonAntd>
       </div>
       <Flex justify="center" gap={20}>
-        <div
-          style={{
-            color: "#ccff00",
-            fontSize: "20px",
-            fontWeight: "bold",
-            letterSpacing: "-0.40px",
-          }}
-        >
-          Contato
-        </div>
+        <div style={headerDiv}>Contato</div>
         <div>
           <MenuOutlined
             onClick={onClose}

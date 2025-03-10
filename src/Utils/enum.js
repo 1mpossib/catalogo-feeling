@@ -9,6 +9,9 @@ import ombrelones from "../assets/Title/ombrelones.png";
 import pallet from "../assets/Title/pallet.png";
 import poltronas from "../assets/Title/poltronas.png";
 import puffs from "../assets/Title/puffs.png";
+import outros from "../assets/Title/outros.png";
+import sofas from "../assets/Title/sofas.png";
+import tapetes from "../assets/Title/tapetes.png";
 
 
 export const ENUM_LABEL = {
@@ -26,6 +29,7 @@ export const ENUM_LABEL = {
   SOFAS: "Sofás",
   TAPETE: "Tapete",
   OUTROS: "Outros",
+  LED: "LED",
 }
 
 export const ENUM_IMAGE_TITLE = {
@@ -40,7 +44,8 @@ export const ENUM_IMAGE_TITLE = {
   PALLET: pallet,
   POLTRONAS: poltronas,
   PUFFS: puffs,
-  SOFAS: "Sofás",
-  TAPETE: "Tapete",
-  OUTROS: "Outros",
+  SOFAS: sofas,
+  TAPETE: tapetes,
+  OUTROS: outros,
+  LED: "LED",
 }
