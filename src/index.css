@@ -9,3 +9,28 @@ body {
   width: 100vw;
   background-color: rgb(41, 41, 41);
 }
+
+@font-face {
+  font-family: "Satoshi-Regular";
+  src: url("../src/assets/Fonts/WEB/fonts/Satoshi-Regular.woff2")
+      format("woff2"),
+    url("../src/assets/Fonts/WEB/fonts/Satoshi-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi-Black";
+  src: url("../src/assets/Fonts/WEB/fonts/Satoshi-Black.woff2") format("woff2"),
+    url("../src/assets/Fonts/WEB/fonts/Satoshi-Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Satoshi-Bold";
+  src: url("../src/assets/Fonts/WEB/fonts/Satoshi-Bold.woff2") format("woff2"),
+    url("../src/assets/Fonts/WEB/fonts/Satoshi-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

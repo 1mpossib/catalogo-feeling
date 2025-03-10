@@ -1,6 +1,6 @@
 export const cardStyle = {
   width: "345px",
-  minHeight: "215px",
+  minHeight: "185px",
   borderRadius: "20px",
   border: "2px solid #0927d833",
   padding: "0",

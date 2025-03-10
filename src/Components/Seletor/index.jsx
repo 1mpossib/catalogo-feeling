@@ -21,7 +21,13 @@ export default function Seletor({ title, onClick, type = "primary", soon }) {
         onClick={onClick}
         style={seletorButton}
       >
-        <Text style={{ color: colorText[type].colorText, fontSize: "30px" }}>
+        <Text
+          style={{
+            color: colorText[type].colorText,
+            fontSize: "26px",
+            fontFamily: "Satoshi-Regular",
+          }}
+        >
           {soon ? `${title} (Em Breve)` : title}
         </Text>
       </ButtonAntd>

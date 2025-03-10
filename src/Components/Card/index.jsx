@@ -32,28 +32,49 @@ export default function Card({ data, item }) {
 
       <Row justify="space-between" style={{ marginTop: "10px" }}>
         <Tag style={tagStyle}>
-          <Text strong style={{ fontSize: "10px", color: "#CCF7FF" }}>
-            {slug}
+          <Text
+            style={{
+              fontFamily: "Satoshi-Black",
+              fontSize: "10px",
+              color: "#CCF7FF",
+            }}
+          >
+            {slug.toUpperCase()}
           </Text>
         </Tag>
         <div>
-          <Text style={{ fontSize: "10px" }}>ID</Text>{" "}
-          <Text strong style={{ fontSize: "10px" }}>
+          <Text style={{ fontSize: "10px", fontFamily: "Satoshi-Regular" }}>
+            ID
+          </Text>{" "}
+          <Text strong style={{ fontSize: "10px", fontFamily: "Satoshi-Bold" }}>
             {codigo}
           </Text>
         </div>
       </Row>
 
       <Row justify="start" style={{ marginTop: "10px" }}>
-        <Title level={4}>{nome}</Title>
+        <Title
+          level={4}
+          style={{ fontFamily: "Satoshi-Bold", fontSize: "22.25px" }}
+        >
+          {nome}
+        </Title>
       </Row>
 
       <Row justify="end" style={stripes}>
-        <Text strong style={{ fontSize: "22.3px", color: "#0927D8" }}>
+        <Text
+          strong
+          style={{
+            fontFamily: "Satoshi-Black",
+            fontSize: "22.3px",
+            color: "#0927D8",
+          }}
+        >
           {valor}
         </Text>
         <Text
           style={{
+            fontFamily: "Satoshi-Regular",
             fontSize: "14px",
             color: "#0927D8",
             alignContent: "flex-end",
