@@ -26,7 +26,13 @@ export default function Button({ title, onClick, type = "primary" }) {
       type="solid"
       onClick={onClick}
     >
-      <Text style={{ color: buttonColor[type].textColor, fontSize: "20px" }}>
+      <Text
+        style={{
+          color: buttonColor[type].textColor,
+          fontFamily: "Satoshi-Medium",
+          fontSize: "20px",
+        }}
+      >
         {title}
       </Text>
     </ButtonAntd>

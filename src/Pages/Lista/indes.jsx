@@ -60,7 +60,14 @@ export default function Lista() {
         <div>Nenhum Item Encontrado</div>
       )}
       <div style={{ marginBottom: "40px" }}>
-        <div style={{ width: "330px", height: "47px" }}>
+        <div
+          style={{
+            width: "330px",
+            height: "47px",
+            fontFamily: "Satoshi-Medium",
+            fontSize: "20px",
+          }}
+        >
           <Button
             type="primary"
             block

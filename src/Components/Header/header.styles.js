@@ -3,6 +3,9 @@ export const headerFlex = {
   height: "50px",
   padding: "9px 15px",
   backgroundColor: "#00173f",
+  position: "sticky",
+  top: "0",
+  zIndex: "2"
 }
 
 export const headerDiv = {

@@ -34,3 +34,11 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "Satoshi-Medium";
+  src: url("../src/assets/Fonts/WEB/fonts/Satoshi-Medium.woff2") format("woff2"),
+    url("../src/assets/Fonts/WEB/fonts/Satoshi-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
