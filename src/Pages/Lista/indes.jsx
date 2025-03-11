@@ -7,6 +7,7 @@ import { ENUM_IMAGE_TITLE } from "../../Utils/enum";
 import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { divButton } from "./lista.styles";
 
 export default function Lista() {
   const navigate = useNavigate();
@@ -31,14 +32,13 @@ export default function Lista() {
 
   useEffect(() => {
     handleFetch(id);
-    console.log("batata", id);
   }, [id]);
 
   return (
     <Flex
       vertical
       justify="flex-start"
-      gap="40px"
+      // gap="10px"
       align="center"
       style={{
         backgroundColor: "#fff",
@@ -47,11 +47,13 @@ export default function Lista() {
       }}
     >
       <Header />
-      <Title img={ENUM_IMAGE_TITLE[id.toUpperCase()]} />
+      <div style={{ top: "0" }}>
+        <Title img={ENUM_IMAGE_TITLE[id.toUpperCase()]} />
+      </div>
       {data.produtos.length ? (
         <div>
           {data.produtos.map((item) => (
-            <div key={item.id} style={{ marginBottom: "40px" }}>
+            <div key={`produtos-${item.id}`} style={{ marginBottom: "40px" }}>
               <Card item={item} data={data} />
             </div>
           ))}
@@ -60,14 +62,7 @@ export default function Lista() {
         <div>Nenhum Item Encontrado</div>
       )}
       <div style={{ marginBottom: "40px" }}>
-        <div
-          style={{
-            width: "330px",
-            height: "47px",
-            fontFamily: "Satoshi-Medium",
-            fontSize: "20px",
-          }}
-        >
+        <div style={divButton}>
           <Button
             type="primary"
             block

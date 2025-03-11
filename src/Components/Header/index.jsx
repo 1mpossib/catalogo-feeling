@@ -27,7 +27,7 @@ export default function Header() {
         </ButtonAntd>
       </div>
       <Flex justify="center" gap={20}>
-        <div style={headerDiv}>Contato</div>
+        {/* <div style={headerDiv}>Contato</div> */}
         <div>
           <MenuOutlined
             onClick={onClose}
