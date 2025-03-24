@@ -20,6 +20,7 @@ export default function Card({ data, item }) {
                   style={{
                     width: "323px",
                     height: "310px",
+                    borderRadius: "20px",
                   }}
                 />
               </div>

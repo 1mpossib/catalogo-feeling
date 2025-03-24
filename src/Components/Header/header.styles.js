@@ -7,10 +7,3 @@ export const headerFlex = {
   top: "0",
   zIndex: "2"
 }
-
-export const headerDiv = {
-  color: "#ccff00",
-  fontSize: "20px",
-  fontWeight: "bold",
-  letterSpacing: "-0.40px",
-}

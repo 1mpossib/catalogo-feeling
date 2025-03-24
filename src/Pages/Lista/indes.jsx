@@ -17,6 +17,7 @@ export default function Lista() {
 
   const [data, setData] = useState({ produtos: [{ fotos: [] }] });
   const [Loading, setLoading] = useState(true);
+  const [dataFiltred, setDataFiltred] = useState([]);
 
   const handleClick = () => {
     navigate("/categorias");
@@ -28,6 +29,7 @@ export default function Lista() {
         `https://feeling.marcelobento.com.br/api/categorias/${id}`
       );
       setData(response.data);
+      setDataFiltred(response.data.produtos);
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -38,11 +40,19 @@ export default function Lista() {
     handleFetch(id);
   }, [id]);
 
+  const handleSearch = (e) => {
+    console.log(data);
+    const result = data.produtos.filter((item) =>
+      item.nome.toLowerCase().includes(e.toLowerCase())
+    );
+    setDataFiltred(result);
+    console.log(result);
+  };
+
   return (
     <Flex
       vertical
       justify="flex-start"
-      // gap="10px"
       align="center"
       style={{
         backgroundColor: "#fff",
@@ -50,7 +60,7 @@ export default function Lista() {
         width: "412px",
       }}
     >
-      <Header />
+      <Header onSearch={handleSearch} />
       <div style={{ top: "0" }}>
         <Title img={ENUM_IMAGE_TITLE[id.toUpperCase()]} />
       </div>
@@ -58,9 +68,9 @@ export default function Lista() {
         <Loader />
       ) : (
         <div>
-          {data.produtos.length ? (
+          {dataFiltred.length ? (
             <div>
-              {data.produtos.map((item) => (
+              {dataFiltred.map((item) => (
                 <div
                   key={`produtos-${item.id}`}
                   style={{ marginBottom: "40px" }}
