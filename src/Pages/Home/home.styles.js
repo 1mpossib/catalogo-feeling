@@ -5,7 +5,6 @@ export const container = {
   height: "917px",
   width: "412px",
   backgroundColor: "#00173f",
-  position: "relative",
 }
 
 export const rectangle = {
