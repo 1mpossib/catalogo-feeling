@@ -1,5 +1,5 @@
 import { Button as ButtonAntd, Flex, Input } from "antd";
-import { MenuOutlined, SearchOutlined } from "@ant-design/icons";
+import { MenuOutlined, SearchOutlined, CloseOutlined } from "@ant-design/icons";
 import LOGOH from "../../assets/Header/LOGOH.png";
 import { useNavigate } from "react-router";
 import { headerFlex } from "./header.styles";
@@ -37,7 +37,13 @@ export default function Header({ onSearch }) {
           <ButtonAntd
             type="text"
             icon={
-              <SearchOutlined style={{ fontSize: "24px", color: "#ccff00" }} />
+              isOpen ? (
+                <CloseOutlined style={{ fontSize: "24px", color: "#ccff00" }} />
+              ) : (
+                <SearchOutlined
+                  style={{ fontSize: "24px", color: "#ccff00" }}
+                />
+              )
             }
             onClick={() => setIsOpen(!isOpen)}
           />
