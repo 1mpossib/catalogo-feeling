@@ -41,12 +41,10 @@ export default function Lista() {
   }, [id]);
 
   const handleSearch = (e) => {
-    console.log(data);
     const result = data.produtos.filter((item) =>
       item.nome.toLowerCase().includes(e.toLowerCase())
     );
     setDataFiltred(result);
-    console.log(result);
   };
 
   return (
@@ -61,7 +59,7 @@ export default function Lista() {
       }}
     >
       <Header onSearch={handleSearch} />
-      <div style={{ top: "0" }}>
+      <div style={{ marginTop: "-10px" }}>
         <Title img={ENUM_IMAGE_TITLE[id.toUpperCase()]} />
       </div>
       {Loading ? (
@@ -73,7 +71,7 @@ export default function Lista() {
               {dataFiltred.map((item) => (
                 <div
                   key={`produtos-${item.id}`}
-                  style={{ marginBottom: "40px" }}
+                  style={{ marginBottom: "95px", marginTop: "-55px" }}
                 >
                   <Card item={item} data={data} />
                 </div>

@@ -17,6 +17,7 @@ export default function Card({ data, item }) {
                 <img
                   src={`https://feeling.marcelobento.com.br/storage/${foto.imagem}`}
                   alt="Img"
+                  loading="lazy"
                   style={{
                     width: "323px",
                     height: "310px",

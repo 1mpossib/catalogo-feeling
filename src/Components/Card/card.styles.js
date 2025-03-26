@@ -3,7 +3,6 @@ export const cardStyle = {
   minHeight: "185px",
   borderRadius: "20px",
   border: "2px solid #0927d833",
-  padding: "0",
 }
 
 export const carouselStyle = {
