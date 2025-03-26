@@ -40,7 +40,7 @@ export default function Card({ data, item }) {
               color: "#CCF7FF",
             }}
           >
-            {slug?.toUpperCase()}
+            {slug?.replace(/_/g, " ").toUpperCase()}
           </Text>
         </Tag>
         <div>
