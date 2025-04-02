@@ -41,6 +41,11 @@ export default function Lista() {
   }, [id]);
 
   const handleSearch = (e) => {
+    if (!e) {
+      setDataFiltred(data.produtos);
+      return;
+    }
+
     const result = data.produtos.filter((item) =>
       item.nome.toLowerCase().includes(e.toLowerCase())
     );

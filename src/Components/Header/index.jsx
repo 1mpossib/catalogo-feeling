@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function Header({ onSearch }) {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
 
   const onClose = () => {
     navigate("/categorias");
@@ -18,7 +19,17 @@ export default function Header({ onSearch }) {
   };
 
   const handleSearch = (e) => {
-    onSearch(e.target.value);
+    const value = e.target.value;
+    setSearchValue(value);
+    onSearch(value);
+  };
+
+  const toggleSearch = () => {
+    if (isOpen) {
+      setSearchValue("");
+      onSearch("");
+    }
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -45,10 +56,11 @@ export default function Header({ onSearch }) {
                 />
               )
             }
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={toggleSearch}
           />
           {isOpen && (
             <Input
+              value={searchValue}
               onChange={(e) => handleSearch(e)}
               placeholder="Buscar..."
               style={{
