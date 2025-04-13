@@ -15,7 +15,7 @@ export default function Card({ data, item }) {
             {fotos.map((foto) => (
               <div key={foto.id}>
                 <img
-                  src={`https://feeling.marcelobento.com.br/storage/${foto.imagem}`}
+                  src={`http://api.feelingambientes.com.br/storage/${foto.imagem}`}
                   alt="Img"
                   loading="lazy"
                   style={{

@@ -26,13 +26,15 @@ export default function Lista() {
   const handleFetch = async (id) => {
     try {
       const response = await axios.get(
-        `https://feeling.marcelobento.com.br/api/categorias/${id}`
+        `http://api.feelingambientes.com.br/api/categorias/${id}`
       );
       setData(response.data);
       setDataFiltred(response.data.produtos);
-      setLoading(false);
+      console.log(response.data.produtos);
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -83,7 +85,16 @@ export default function Lista() {
               ))}
             </div>
           ) : (
-            <div>Nenhum Item Encontrado</div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "70px",
+              }}
+            >
+              Nenhum Item Encontrado
+            </div>
           )}
 
           <div style={{ marginBottom: "40px", marginLeft: "7px" }}>
