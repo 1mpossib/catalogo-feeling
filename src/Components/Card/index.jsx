@@ -10,7 +10,7 @@ export default function Card({ data, item }) {
   return (
     <CardAntd style={cardStyle}>
       <Row justify="center">
-        {fotos.length ? (
+        {fotos.length > 1 ? (
           <Carousel arrows={true} infinite={false} style={carouselStyle}>
             {fotos.map((foto) => (
               <div key={foto.id}>
@@ -27,6 +27,17 @@ export default function Card({ data, item }) {
               </div>
             ))}
           </Carousel>
+        ) : fotos.length === 1 ? (
+          <img
+            src={`http://api.feelingambientes.com.br/storage/${fotos[0].imagem}`}
+            alt="Img"
+            loading="lazy"
+            style={{
+              width: "323px",
+              height: "auto",
+              borderRadius: "20px",
+            }}
+          />
         ) : (
           <div></div>
         )}
