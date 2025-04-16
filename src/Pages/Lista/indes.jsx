@@ -18,6 +18,7 @@ export default function Lista() {
   const [data, setData] = useState({ produtos: [{ fotos: [] }] });
   const [Loading, setLoading] = useState(true);
   const [dataFiltred, setDataFiltred] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
 
   const handleClick = () => {
     navigate("/categorias");
@@ -30,7 +31,6 @@ export default function Lista() {
       );
       setData(response.data);
       setDataFiltred(response.data.produtos);
-      console.log(response.data.produtos);
     } catch (error) {
       console.log(error);
     } finally {
@@ -38,8 +38,20 @@ export default function Lista() {
     }
   };
 
+  const fetchAllProducts = async () => {
+    try {
+      const response = await axios.get(
+        "http://api.feelingambientes.com.br/api/produtos"
+      );
+      setAllProducts(response.data.produtos);
+    } catch (error) {
+      console.log("Erro ao buscar todos os produtos", error);
+    }
+  };
+
   useEffect(() => {
     handleFetch(id);
+    fetchAllProducts();
   }, [id]);
 
   const handleSearch = (e) => {
@@ -48,7 +60,7 @@ export default function Lista() {
       return;
     }
 
-    const result = data.produtos.filter((item) =>
+    const result = allProducts.filter((item) =>
       item.nome.toLowerCase().includes(e.toLowerCase())
     );
     setDataFiltred(result);
