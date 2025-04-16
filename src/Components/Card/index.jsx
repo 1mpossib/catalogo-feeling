@@ -20,7 +20,7 @@ export default function Card({ data, item }) {
                   loading="lazy"
                   style={{
                     width: "323px",
-                    height: "310px",
+                    height: "auto",
                     borderRadius: "20px",
                   }}
                 />

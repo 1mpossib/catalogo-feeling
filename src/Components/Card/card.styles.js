@@ -7,7 +7,7 @@ export const cardStyle = {
 
 export const carouselStyle = {
   width: "323px",
-  height: "310px",
+  height: "auto",
   borderRadius: "20px",
 }
 
