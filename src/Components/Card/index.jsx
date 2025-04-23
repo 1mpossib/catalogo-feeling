@@ -7,29 +7,12 @@ export default function Card({ data, item }) {
   const { slug } = data;
   const { id, fotos, nome, valor, codigo } = item;
 
-  return (
-    <CardAntd style={cardStyle}>
-      <Row justify="center">
-        {fotos.length > 1 ? (
-          <Carousel arrows={true} infinite={false} style={carouselStyle}>
-            {fotos.map((foto) => (
-              <div key={foto.id}>
-                <img
-                  src={`http://api.feelingambientes.com.br/storage/${foto.imagem}`}
-                  alt="Img"
-                  loading="lazy"
-                  style={{
-                    width: "323px",
-                    height: "auto",
-                    borderRadius: "20px",
-                  }}
-                />
-              </div>
-            ))}
-          </Carousel>
-        ) : fotos.length === 1 ? (
+  const renderCarousel = (
+    <Carousel arrows={true} infinite={false} style={carouselStyle}>
+      {fotos.map((foto) => (
+        <div key={foto.id}>
           <img
-            src={`http://api.feelingambientes.com.br/storage/${fotos[0].imagem}`}
+            src={`https://api.feelingambientes.com.br/storage/${foto.imagem}`}
             alt="Img"
             loading="lazy"
             style={{
@@ -38,9 +21,37 @@ export default function Card({ data, item }) {
               borderRadius: "20px",
             }}
           />
-        ) : (
-          <div></div>
-        )}
+        </div>
+      ))}
+    </Carousel>
+  );
+
+  const renderImage = (
+    <img
+      src={`https://api.feelingambientes.com.br/storage/${fotos[0].imagem}`}
+      alt="Img"
+      loading="lazy"
+      style={{
+        width: "323px",
+        height: "auto",
+        borderRadius: "20px",
+      }}
+    />
+  );
+
+  const formatarPreco = (valor) => {
+    return new Intl.NumberFormat("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    }).format(parseFloat(valor));
+  };
+
+  return (
+    <CardAntd style={cardStyle}>
+      <Row justify="center">
+        {fotos.length > 1 && renderCarousel}
+        {fotos.length === 1 && renderImage}
+        {!fotos.length && <div></div>}
       </Row>
 
       <Row justify="space-between" style={{ marginTop: "10px" }}>
@@ -83,7 +94,7 @@ export default function Card({ data, item }) {
             color: "#0927D8",
           }}
         >
-          {valor}
+          {formatarPreco(valor)}
         </Text>
         <Text
           style={{

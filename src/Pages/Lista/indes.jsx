@@ -27,11 +27,13 @@ export default function Lista() {
   const handleFetch = async (id) => {
     try {
       const response = await axios.get(
-        `http://api.feelingambientes.com.br/api/categorias/${id}`
+        `https://api.feelingambientes.com.br/api/categorias/${id}`
       );
       setData(response.data);
       setDataFiltred(response.data.produtos);
     } catch (error) {
+      setData([]);
+      setDataFiltred([]);
       console.log(error);
     } finally {
       setLoading(false);
@@ -41,7 +43,7 @@ export default function Lista() {
   const fetchAllProducts = async () => {
     try {
       const response = await axios.get(
-        "http://api.feelingambientes.com.br/api/produtos"
+        "https://api.feelingambientes.com.br/api/produtos"
       );
       setAllProducts(response.data.produtos);
     } catch (error) {
@@ -56,8 +58,13 @@ export default function Lista() {
 
   const handleSearch = (e) => {
     if (!e) {
-      setDataFiltred(data.produtos);
-      return;
+      if (!data?.produtos) {
+        setDataFiltred([]);
+        return;
+      } else {
+        setDataFiltred(data.produtos);
+        return;
+      }
     }
 
     const result = allProducts.filter((item) =>

@@ -27,7 +27,7 @@ function Categorias() {
     }
   };
 
-  const url = "https://feeling.marcelobento.com.br/api/categorias";
+  const url = "https://api.feelingambientes.com.br/api/categorias";
 
   const handleCategoria = async () => {
     try {
